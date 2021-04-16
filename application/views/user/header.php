@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Go-Futsal Web</title>
+  <title>Futsalin-Kuy Web</title>
 
   <!-- Bootstrap core CSS -->
   <link href="<?= base_url('assets/'); ?>member/bootstrap/css/bootstrap.min.css" rel="stylesheet">
