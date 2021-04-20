@@ -221,21 +221,19 @@ class Member extends CI_Controller
 
 	function cetakpdf($id)
 	{
-		$this->load->library('dompdf_gen');
+		$this->load->library('pdf');
 
 		$data['penyewaan'] = $this->DataPenyewaan_model->getSewa($id);
 
 		$this->load->view('user/cetak_sewa', $data);
 
-		$paper_size  = 'A4'; // ukuran kertas
-		$orientation = 'landscape'; //tipe format kertas potrait atau landscape
+		$this->pdf->setPaper('A4', 'landscape'); //tipe ukuran dan format kertas potrait atau landscape
 		$html = $this->output->get_output();
 
-		$this->dompdf->set_paper($paper_size, $orientation);
 		//Convert to PDF
-		$this->dompdf->load_html($html);
-		$this->dompdf->render();
-		$this->dompdf->stream("cetak_sewa.pdf", array('Attachment' => 0));
+		$this->pdf->load_html($html);
+		$this->pdf->render();
+		$this->pdf->stream("cetak_sewa.pdf", array('Attachment' => 0));
 		// nama file pdf yang di hasilkan
 	}
 
