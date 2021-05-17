@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 05, 2019 at 04:20 PM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 5.6.40
+-- Generation Time: May 17, 2021 at 11:01 AM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.2.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `dbgofutsal`
+-- Database: `futsal`
 --
 
 -- --------------------------------------------------------
@@ -63,12 +63,7 @@ CREATE TABLE `jadwal` (
 --
 
 INSERT INTO `jadwal` (`id_jadwal`, `id_lap`, `jam_mulai`, `jam_selesai`, `durasi`, `tgl_main`, `id_sewa`) VALUES
-('JD', 2, '21:00:00', '23:00:00', 2, '2019-07-18', 'BO'),
-('JD1', 5, '19:00:00', '20:00:00', 1, '2019-08-14', 'BO1'),
-('JD3', 5, '22:00:00', '23:00:00', 1, '2019-08-13', 'BO2'),
-('JD4', 1, '16:00:00', '17:00:00', 1, '2019-08-12', 'BO3'),
-('JD5', 1, '08:00:00', '10:00:00', 2, '2019-08-24', 'BO5'),
-('JD6', 1, '07:00:00', '08:00:00', 1, '2019-08-24', 'BO6');
+('JD', 2, '07:00:00', '08:00:00', 1, '2021-04-23', 'BO');
 
 -- --------------------------------------------------------
 
@@ -112,11 +107,11 @@ CREATE TABLE `lapangan` (
 --
 
 INSERT INTO `lapangan` (`id_lap`, `id_kategori`, `nama_lap`, `lokasi`, `tarif`, `gambar`) VALUES
-(1, 1, 'Rinjani 1', 'Jl. Pangkalan Jati No. 17', 85000, 'rinjani1.jpg'),
-(2, 7, 'H. Turoh', 'Gang Nangka KP Cakung, Kel. Jatimekar, Kec. Jatias', 65000, '11.jpg'),
-(3, 3, 'Sentro', 'Jl. Raya Hayam Wuruk 89', 115000, '4.jpg'),
-(4, 2, 'Exco', 'Jl. Jatiwaringin No. 27', 85000, 'profil.jpg'),
-(5, 4, 'Alibaba', 'Jl. Raya Pekayon', 115000, '156005c5baf40ff51a327f1c34f2975b2.jpg');
+(1, 1, 'Rinjani 1', 'Karawang Kota', 85000, 'rinjani1.jpg'),
+(2, 7, 'H. Turoh', 'Resinda', 65000, '11.jpg'),
+(3, 3, 'Sentro', 'Galuh', 115000, '4.jpg'),
+(4, 2, 'Exco', 'Klari', 85000, 'profil.jpg'),
+(5, 4, 'Alibaba', 'Teluk Jambe', 115000, '156005c5baf40ff51a327f1c34f2975b2.jpg');
 
 -- --------------------------------------------------------
 
@@ -140,11 +135,8 @@ CREATE TABLE `member` (
 --
 
 INSERT INTO `member` (`id_member`, `nama_member`, `gender`, `alamat`, `no_hp`, `email`, `foto_member`, `id_user`) VALUES
-(5, 'Willy Permana', 'Laki-Laki', 'Ponorogo', '081946097421', 'willy.permana21@gmail.com', 'user.jpg', 5),
-(10, 'Fitria Ambarwati', 'Perempuan', 'Jatiwaringi, Jakarta Timur', '081234345656', 'f.ambar@gmail.com', '', 9),
-(12, 'Putut Redianto', 'Perempuan', 'Madiun', '081234345656', 'robby.nelius@yahoo.com', '', 10),
-(13, 'Willy Permanaa', 'Laki-Laki', 'Madiun', '081946097421', 'robby.nelius@yahoo.com', '', 11),
-(14, 'MIO', 'Laki-Laki', 'Depok', '021212', 'mio@gmail.com', '', 12);
+(15, 'Muhammad Fadhila Abiyyu F', 'Laki-Laki', 'Jl. H.S. Ronggowaluyo, Teluk Jambe, Karawang', '02134005122', 'yuffa36@gmail.com', '', 13),
+(16, 'Rizqi Alfadillah Saprudin', 'Laki-Laki', 'Dusun Sukatani Rt.010/004 Desa Pinayungan', '08976986615', 'rizqialfadil@gmail.com', '', 14);
 
 -- --------------------------------------------------------
 
@@ -159,7 +151,7 @@ CREATE TABLE `pembayaran` (
   `tgl_bayar` date NOT NULL,
   `status_bayar` enum('Menunggu Pembayaran','Menunggu Konfirmasi','Terkonfirmasi') NOT NULL,
   `bukti` varchar(100) NOT NULL,
-  `jam_pesan` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `jam_pesan` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -167,15 +159,7 @@ CREATE TABLE `pembayaran` (
 --
 
 INSERT INTO `pembayaran` (`id_bayar`, `id_sewa`, `totalbayar`, `tgl_bayar`, `status_bayar`, `bukti`, `jam_pesan`) VALUES
-('IV', 'BO', 130000, '2019-07-21', 'Terkonfirmasi', 'gambar15582505086.jpg', '0000-00-00 00:00:00'),
-('IV1', 'BO1', 115000, '0000-00-00', 'Menunggu Pembayaran', '', '0000-00-00 00:00:00'),
-('IV2', 'BO2', 115000, '2019-08-12', 'Terkonfirmasi', 'gambar1558246424.jpg', '2019-08-25 11:38:49'),
-('IV3', 'BO3', 85000, '2019-08-12', 'Menunggu Konfirmasi', 'gambar1558211779.jpg', '2019-09-23 04:18:19'),
-('IV4', 'BO4', 340000, '0000-00-00', 'Menunggu Pembayaran', '', '0000-00-00 00:00:00'),
-('IV5', 'BO5', 0, '0000-00-00', 'Menunggu Pembayaran', '', '0000-00-00 00:00:00'),
-('IV6', 'BO6', 0, '0000-00-00', 'Menunggu Pembayaran', '', '0000-00-00 00:00:00'),
-('IV7', 'BO5', 0, '0000-00-00', 'Menunggu Pembayaran', '', '0000-00-00 00:00:00'),
-('IV8', 'BO6', 85000, '0000-00-00', 'Menunggu Pembayaran', '', '0000-00-00 00:00:00');
+('IV', 'BO', 65000, '0000-00-00', 'Menunggu Pembayaran', '', '2021-04-22 13:22:23');
 
 -- --------------------------------------------------------
 
@@ -198,13 +182,7 @@ CREATE TABLE `penyewaan` (
 --
 
 INSERT INTO `penyewaan` (`id_sewa`, `id_lap`, `id_member`, `tgl_pesan`, `tgl_sewa`, `jam_mulai`, `status_sewa`) VALUES
-('BO', 2, 5, '2019-07-18', '2019-07-18', '21:00:00', 'Selesai'),
-('BO1', 5, 10, '2019-08-10', '2019-08-10', '19:00:00', 'Selesai'),
-('BO2', 5, 5, '2019-08-10', '2019-08-10', '22:00:00', 'Selesai'),
-('BO3', 1, 5, '2019-08-10', '2019-08-11', '16:00:00', 'Batal'),
-('BO4', 4, 5, '2019-08-14', '2019-08-14', '00:00:00', 'Selesai'),
-('BO5', 1, 5, '2019-08-24', '2019-08-24', '08:00:00', 'Booking'),
-('BO6', 1, 5, '2019-08-24', '2019-08-24', '07:00:00', 'Booking');
+('BO', 2, 16, '2021-04-22', '2021-04-23', '07:00:00', 'Booking');
 
 -- --------------------------------------------------------
 
@@ -216,7 +194,7 @@ CREATE TABLE `user` (
   `id_user` int(11) NOT NULL,
   `username` varchar(20) NOT NULL,
   `password` varchar(35) NOT NULL,
-  `status` enum('1','2','','') NOT NULL
+  `status` enum('1','2','3','','') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -224,12 +202,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `username`, `password`, `status`) VALUES
-(4, 'adm', 'b09c600fddc573f117449b3723f23d64', '1'),
-(5, 'willy', 'e7236697824fb37763235980f1061218', '2'),
-(9, 'fitri', '534a0b7aa872ad1340d0071cbfa38697', '2'),
-(10, 'putut', '5b26f09d8dc0cb4f9290ffabbd299806', '2'),
-(11, 'willy2', 'da4e43aad927f384446a02c002760f02', '2'),
-(12, 'mio', '78c925a3a4b36984d1bcbbb01457eec6', '2');
+(4, 'admin', '0192023a7bbd73250516f069df18b500', '1'),
+(13, 'fadhila36', 'bb9aa282169bd729e0c8245b7edc7a15', '2'),
+(14, 'fadil', 'bc86e7f23018b3b810743914b1cb4029', '2');
 
 --
 -- Indexes for dumped tables
@@ -316,13 +291,13 @@ ALTER TABLE `lapangan`
 -- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
-  MODIFY `id_member` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_member` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
