@@ -93,7 +93,7 @@
                             <i class="material-icons">email</i>
                         </span>
                         <div class="form-line">
-                            <input type="text" class="form-control" name="email" placeholder="Email" required autofocus>
+                            <input type="email" class="form-control" name="email" placeholder="Email" required autofocus>
                         </div>
                     </div>
 
