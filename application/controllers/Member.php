@@ -221,7 +221,7 @@ class Member extends CI_Controller
 
 	function cetakpdf($id)
 	{
-		$this->load->library('pdf');
+		$this->load->library('Pdf');
 
 		$data['penyewaan'] = $this->DataPenyewaan_model->getSewa($id);
 
