@@ -5,7 +5,7 @@
         <div class="navbar-header">
             <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
             <a href="javascript:void(0);" class="bars"></a>
-            <a class="navbar-brand" href="<?= base_url(); ?>kepo/Dashboard">Dashboard</a>
+            <a class="navbar-brand" href="<?= base_url(); ?>backend/Dashboard">Dashboard</a>
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
@@ -59,36 +59,40 @@
                             <span>Data Siswa</span>
                         </a>
                     </li> -->
-                <li>
-                    <a href="<?= base_url() ?>backend/kategori">
-                        <i class="material-icons">layers</i>
-                        <span>Data Kategori</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="<?= base_url() ?>backend/lapangan">
-                        <i class="material-icons">layers</i>
-                        <span>Data Lapangan</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="<?= base_url() ?>backend/admin">
-                        <i class="material-icons">layers</i>
-                        <span>Data Admin</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="<?= base_url() ?>backend/member">
-                        <i class="material-icons">layers</i>
-                        <span>Data Member</span>
-                    </a>
-                </li>
+                <?php if ($this->session->userdata('status') === '1') : ?>
+                    <li>
+                        <a href="<?= base_url() ?>backend/kategori">
+                            <i class="material-icons">layers</i>
+                            <span>Data Kategori</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?= base_url() ?>backend/lapangan">
+                            <i class="material-icons">layers</i>
+                            <span>Data Lapangan</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?= base_url() ?>backend/admin">
+                            <i class="material-icons">layers</i>
+                            <span>Data Petugas</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?= base_url() ?>backend/member">
+                            <i class="material-icons">layers</i>
+                            <span>Data Member</span>
+                        </a>
+                    </li>
+                <?php endif; ?>
+
                 <li>
                     <a href="<?= base_url() ?>backend/penyewaan">
                         <i class="material-icons">adb</i>
                         <span>Data Penyewaan</span>
                     </a>
                 </li>
+
                 <li>
                     <a href="<?= base_url() ?>backend/jadwal">
                         <i class="material-icons">adb</i>
@@ -108,7 +112,7 @@
         <!-- Footer -->
         <div class="legal">
             <div class="copyright">
-                &copy; 2016 - 2017 <a href="javascript:void(0);">Kemkes - Material Design</a>.
+                &copy; 2020 - 2021 <a href="javascript:void(0);">Futsal-Kuy</a>.
             </div>
             <!-- <div class="version">
                     <b>Version: </b> 1.0.5
