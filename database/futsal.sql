@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 17, 2021 at 11:01 AM
+-- Generation Time: May 26, 2021 at 07:56 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.27
 
@@ -40,7 +40,9 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id_admin`, `nama_admin`, `foto_admin`, `id_user`) VALUES
-(2, 'Administrator', 'user.jpg', 4);
+(2, 'Administrator', 'user.jpg', 4),
+(3, 'Petugas', 'user.jpg', 15),
+(4, 'petugas2', '', 16);
 
 -- --------------------------------------------------------
 
@@ -63,7 +65,8 @@ CREATE TABLE `jadwal` (
 --
 
 INSERT INTO `jadwal` (`id_jadwal`, `id_lap`, `jam_mulai`, `jam_selesai`, `durasi`, `tgl_main`, `id_sewa`) VALUES
-('JD', 2, '07:00:00', '08:00:00', 1, '2021-04-23', 'BO');
+('JD', 2, '07:00:00', '08:00:00', 1, '2021-04-23', 'BO'),
+('JD1', 2, '07:00:00', '08:00:00', 1, '2021-05-19', 'BO1');
 
 -- --------------------------------------------------------
 
@@ -159,7 +162,8 @@ CREATE TABLE `pembayaran` (
 --
 
 INSERT INTO `pembayaran` (`id_bayar`, `id_sewa`, `totalbayar`, `tgl_bayar`, `status_bayar`, `bukti`, `jam_pesan`) VALUES
-('IV', 'BO', 65000, '0000-00-00', 'Menunggu Pembayaran', '', '2021-04-22 13:22:23');
+('IV', 'BO', 65000, '0000-00-00', 'Menunggu Pembayaran', '', '2021-04-22 13:22:23'),
+('IV1', 'BO1', 65000, '2021-05-18', 'Terkonfirmasi', 'IMG20201015172250.jpg', '2021-05-18 03:51:12');
 
 -- --------------------------------------------------------
 
@@ -182,7 +186,8 @@ CREATE TABLE `penyewaan` (
 --
 
 INSERT INTO `penyewaan` (`id_sewa`, `id_lap`, `id_member`, `tgl_pesan`, `tgl_sewa`, `jam_mulai`, `status_sewa`) VALUES
-('BO', 2, 16, '2021-04-22', '2021-04-23', '07:00:00', 'Booking');
+('BO', 2, 16, '2021-04-22', '2021-04-23', '07:00:00', 'Booking'),
+('BO1', 2, 15, '2021-05-18', '2021-05-19', '07:00:00', 'Booking');
 
 -- --------------------------------------------------------
 
@@ -204,7 +209,9 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id_user`, `username`, `password`, `status`) VALUES
 (4, 'admin', '0192023a7bbd73250516f069df18b500', '1'),
 (13, 'fadhila36', 'bb9aa282169bd729e0c8245b7edc7a15', '2'),
-(14, 'fadil', 'bc86e7f23018b3b810743914b1cb4029', '2');
+(14, 'fadil', 'bc86e7f23018b3b810743914b1cb4029', '2'),
+(15, 'petugas', '570c396b3fc856eceb8aa7357f32af1a', '3'),
+(16, 'petugas2', '570c396b3fc856eceb8aa7357f32af1a', '3');
 
 --
 -- Indexes for dumped tables
@@ -273,7 +280,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `kategori`
@@ -297,7 +304,7 @@ ALTER TABLE `member`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
