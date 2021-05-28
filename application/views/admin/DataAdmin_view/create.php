@@ -1,22 +1,12 @@
-<section class="content">
-    <div class="container-fluid">
-        <div class="block-header">
-            <h2>Petugas</h2>
-
-        </div>
-
-        <!-- Exportable Table -->
-        <div class="row clearfix">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="card">
-                    <div class="header">
-                        <h2>
-                            EXPORTABLE TABLE
-                        </h2>
-                    </div>
-                    <div class="body">
-
-
+<div class="main">
+    <div class="main-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Tambah Data Petugas</h3>
+                        </div>
                         <div class="col-md-4">
                             <?php
                             $this->load->helper('form');
@@ -44,42 +34,36 @@
                                 </div>
                             </div>
                         </div>
-                        <form role="form" id="addUser" action="<?php echo base_url() ?>backend/admin/addNew" method="post" role="form">
-                            <div class="box-body">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label for="fname">Input Nama Petugas</label>
-                                            <input type="text" class="form-control required" id="nama_admin" name="nama_admin" placeholder="Nama Petugas">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label for="fname">Input Username</label>
-                                            <input type="text" class="form-control required" id="username" name="username" placeholder="Username">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label for="fname">Input Password</label>
-                                            <input type="password" class="form-control required" id="password" name="password" placeholder="Password">
-                                        </div>
-                                    </div>
+                        <div class="panel-body">
+                            <form role="form" id="addUser" action="<?php echo base_url() ?>backend/admin/addNew" method="post" role="form">
+                                <div class="form-group">
+                                    <label for="fname">Input Nama Petugas</label>
+                                    <input type="text" class="form-control required" id="nama_admin" name="nama_admin" placeholder="Nama Petugas">
                                 </div>
-
-                            </div><!-- /.box-body -->
-
-                            <div class="box-footer">
-                                <input type="submit" class="btn btn-primary" value="Submit" />
-                                <input type="reset" class="btn btn-default" value="Reset" />
-                            </div>
-                        </form>
+                                <div class="form-group">
+                                    <label for="fname">Input Username</label>
+                                    <input type="text" class="form-control required" id="username" name="username" placeholder="Username">
+                                </div>
+                                <div class="form-group">
+                                    <label for="fname">Input Password</label>
+                                    <input type="password" class="form-control required" id="password" name="password" placeholder="Password">
+                                </div>
+                                <div class="box-footer">
+                                    <input type="submit" class="btn btn-primary" value="Submit" />
+                                    <input type="reset" class="btn btn-default" value="Reset" />
+                                </div>
+                        </div>
                     </div>
-                </div>
+
+                </div><!-- /.box-body -->
+
+                </form>
             </div>
         </div>
-        <!-- #END# Exportable Table -->
     </div>
+</div>
+<!-- #END# Exportable Table -->
+</div>
 </section>
 
 <script src="<?= base_url(); ?>assets/admin/plugins/jquery-datatable/jquery.dataTables.js"></script>

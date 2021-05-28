@@ -45,7 +45,9 @@
                                 </div>
 
                                 <button type="submit" class="btn btn-primary btn-lg btn-block">LOGIN</button>
-
+                                <div class="bottom">
+                                    <span class="helper-text"><i class="fa fa-user-plus"></i> <a href="<?= base_url() ?>Register">Belum Punya Akun?</a></span>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -54,7 +56,7 @@
                         <div class="content text">
                             <h1 class="heading">Selamat Datang di Aplikasi Penyewaan Lapangan Futsal</h1>
                             <p>by Futsalin-Kuy</p>
-                        </div>
+                        </div>  
                     </div>
                     <div class="clearfix"></div>
                 </div>

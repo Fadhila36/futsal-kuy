@@ -1,65 +1,52 @@
-<section class="content">
-    <div class="container-fluid">
-        <div class="block-header">
-            <h2>Admin</h2>
-
-        </div>
-
-        <!-- Exportable Table -->
-        <div class="row clearfix">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="card">
-                    <div class="header">
-                        <h2>
-                            Master Data
-                        </h2>
-                        <ul class="header-dropdown m-r--5">
-                            <li class="dropdown">
-                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                    <i class="material-icons">more_vert</i>
-                                </a>
-                                <ul class="dropdown-menu pull-right">
-                                    <li><a href="<?= base_url() ?>backend/admin/createUser">Create</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="body">
-                        <div class="table-responsive">
-                            <table class="table table-bordered table-striped table-hover dataTable js-exportable">
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Nama Petugas</th>
-                                        <th>Username</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tfoot>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Nama Petugas</th>
-                                        <th>Username</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </tfoot>
-                                <tbody>
-                                    <?php
-                                    $no = 1;
-                                    foreach ($admin as $f) { ?>
+<div class="main">
+    <div class="main-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Data Petugas</h3>
+                            <div class="right">
+                                <a href="<?= base_url() ?>backend/admin/createUser" type="button" class="btn btn-default"><i class="fa fa-plus-square"></i> Tambah Data Petugas </a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover dataTable js-exportable">
+                                    <thead>
                                         <tr>
-                                            <td><?= $no++; ?></td>
-                                            <td><?= $f->nama_admin ?></td>
-                                            <td><?php echo $f->username; ?></td>
-                                            <td>
-                                                <a class="btn btn-warning" href="<?= base_url() ?>backend/admin/edit/<?php echo $f->id_user; ?>"><i class="fa fa-edit"></i>Edit</a>
-                                                <a class="btn btn-danger" onClick="javascript: return confirm('Please confirm deletion');" href="<?= base_url() ?>backend/admin/delete/<?php echo $f->id_user; ?>"><i class="fa fa-trash"></i>Hapus</a>
-                                            </td>
+                                            <th>No</th>
+                                            <th>Nama Petugas</th>
+                                            <th>Username</th>
+                                            <th>Action</th>
                                         </tr>
-                                    <?php }
-                                    ?>
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Nama Admin</th>
+                                            <th>Username</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <?php
+                                        $no = 1;
+                                        foreach ($admin as $f) { ?>
+                                            <tr>
+                                                <td><?= $no++; ?></td>
+                                                <td><?= $f->nama_admin ?></td>
+                                                <td><?php echo $f->username; ?></td>
+                                                <td>
+                                                    <a class="btn btn-warning" href="<?= base_url() ?>backend/admin/edit/<?php echo $f->id_user; ?>"><i class="fa fa-edit"></i>Edit</a>
+                                                    <a class="btn btn-danger" onClick="javascript: return confirm('Please confirm deletion');" href="<?= base_url() ?>backend/admin/delete/<?php echo $f->id_user; ?>"><i class="fa fa-trash"></i>Hapus</a>
+                                                </td>
+                                            </tr>
+                                        <?php }
+                                        ?>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -67,7 +54,11 @@
         </div>
         <!-- #END# Exportable Table -->
     </div>
-</section>
+</div>
+</div>
+</div>
+</div>
+</div>
 
 
 <script src="<?= base_url(); ?>assets/admin/plugins/jquery-datatable/jquery.dataTables.js"></script>
